@@ -15,29 +15,28 @@ class IceCreamStand(Restaurant):
     def flavors_available(self):
         """Percorra a lista de sabores disponíveis e imprima."""
         if self.flavors:
-            print("\nNo momento temos os seguintes sabores de sorvete disponíveis:")
-            for flavor in self.flavors:
-                print(f"\t-{flavor}")
+            print("No momento temos os seguintes sabores de sorvete disponíveis:")
+            return self.flavors  # retornar lista de sabores
         else:
-            print("Estamos sem estoque atualmente!")
+            return "Estamos sem estoque atualmente!"  # return ao invés de print
 
     def find_flavor(self, flavor):
         """Verifica se o sabor informado está disponível."""
         if self.flavors:
             if flavor in self.flavors:
-                print(f"Temos no momento {self.flavors}!")
+                return f"Sabor {flavor} disponível!"  # retornar apenas o sabor pedido
             else:
-                print(f"Não temos no momento {self.flavors}!")
+                return f"Sabor {flavor} não disponível!"  # retornar apenas o sabor pedido
         else:
-            print("Estamos sem estoque atualmente!")
+            return "Estamos sem estoque atualmente!"  # return ao invés de print
 
     def add_flavor(self, flavor):
         """Add o sabor informado ao estoque."""
         if self.flavors:
             if flavor in self.flavors:
-                print("\nSabor já disponivel!")
+                return "Sabor já disponível!"  # return ao invés de print
             else:
                 self.flavors.append(flavor)
-                print(f"{flavor} adicionado ao estoque!")
+                return f"{flavor} adicionado ao estoque!"  # return ao invés de print
         else:
             print("Estamos sem estoque atualmente!")
